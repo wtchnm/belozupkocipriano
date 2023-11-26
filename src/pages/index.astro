@@ -19,5 +19,21 @@
 	</head>
 	<body class='antialiased'>
 		<h1 class='px-4 text-gray-500'>Hello!</h1>
+
+		<!-- Netlify Identity -->
+		<script
+			is:inline
+			src='https://identity.netlify.com/v1/netlify-identity-widget.js'></script>
+		<script is:inline>
+			if (window.netlifyIdentity) {
+				window.netlifyIdentity.on('init', user => {
+					if (!user) {
+						window.netlifyIdentity.on('login', () => {
+							document.location.href = '/admin/'
+						})
+					}
+				})
+			}
+		</script>
 	</body>
 </html>

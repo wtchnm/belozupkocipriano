@@ -1,0 +1,56 @@
+---
+import { Image, type LocalImageProps } from 'astro:assets'
+interface Props {
+	image: LocalImageProps['src']
+	name: string
+	description: string
+	graduation: string
+	timeline: Record<string, string[]>
+	expertise: string[]
+}
+const { image, name, description, graduation, timeline, expertise } =
+	Astro.props
+---
+
+<article
+	class='flex w-full justify-center bg-black/10 py-6 max-md:px-5 md:py-10'
+>
+	<div class='grid w-full max-w-5xl md:auto-cols-max md:gap-x-12'>
+		<Image
+			src={image}
+			alt={name}
+			width={200}
+			height={200}
+			class='row-span-2 rounded-full max-md:h-25 max-md:w-25'
+		/>
+		<div class='grid gap-1 font-serif max-md:text-center md:gap-3'>
+			<h2 class='text-lg/5 font-medium text-primary md:text-2xl'>
+				{name}
+			</h2>
+			<p class='text-base/4 text-primary/75 md:text-xl'>{description}</p>
+			<p class='text-base/4 text-primary/75 md:text-xl'>
+				{graduation}
+			</p>
+		</div>
+		<ul class='ml-6 mt-9 max-md:col-span-2 md:col-start-2'>
+			{
+				Object.entries(timeline).map(([title, items]) => (
+					<li>
+						<p class='font-semibold'>{title}</p>
+						<ul class='ml-8'>
+							{items.map(item => (
+								<li>{item}</li>
+							))}
+						</ul>
+					</li>
+				))
+			}
+		</ul>
+		<div class='mt-11 max-md:col-span-2 md:col-start-2'>
+			<p>Experiência profissional no âmbito</p>
+			<ul class='ml-6'>
+				{expertise.map(item => <li>{item}</li>)}
+			</ul>
+		</div>
+	</div>
+</article>

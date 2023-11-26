@@ -1,0 +1,15 @@
+---
+import { Picture as DefaultPicture } from 'astro:assets'
+
+type Props = Parameters<typeof DefaultPicture>[0]
+const { widths, ...rest } = Astro.props
+---
+
+{/* exactOptionalPropertyTypes */}
+<!-- @ts-expect-error -->
+<DefaultPicture
+	{...rest}
+	{widths}
+	formats={['avif', 'webp']}
+	sizes={widths && `(max-width: ${widths.at(-1)}px) 100vw, ${widths.at(-1)}px`}
+/>

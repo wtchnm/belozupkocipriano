@@ -1,0 +1,10 @@
+---
+type Props = astroHTML.JSX.ButtonHTMLAttributes
+---
+
+<button
+	{...Astro.props}
+	class='h-8 w-30 bg-primary font-semibold text-white md:h-10 md:w-48 md:text-lg'
+>
+	<slot />
+</button>

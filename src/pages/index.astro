@@ -1,0 +1,412 @@
+---
+import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
+import HeroImage from '../assets/hero.jpeg'
+import FullLogoImage from '../assets/logo-full.png'
+import LogoGray from '../assets/logo-gray.png'
+import LogoImage from '../assets/logo.jpeg'
+import Team1Image from '../assets/team-1.png'
+import Team2Image from '../assets/team-2.png'
+import Button from '../components/Button.astro'
+import Icon from '../components/Icon.astro'
+import Input from '../components/Input.astro'
+import Post from '../components/Post.astro'
+import TeamMember from '../components/TeamMember.astro'
+import Textarea from '../components/Textarea.astro'
+import Picture from '../components/Picture.astro'
+import Base from '../layouts/Base.astro'
+
+let posts = await getCollection('posts')
+posts = [...posts, ...posts, ...posts]
+---
+
+<Base>
+	<header
+		class='sticky top-0 flex h-14 items-center gap-40 bg-primary font-serif text-xl text-white md:h-18 md:justify-center md:text-2xl'
+	>
+		<div class='relative md:hidden'>
+			<Icon
+				name='hamburger'
+				width={24}
+				height={24}
+				class='relative left-4 z-10 text-secondary'
+				aria-label='Menu'
+			/>
+			<input
+				type='checkbox'
+				class='peer absolute top-0 z-10 size-8 opacity-0'
+				aria-label='Menu'
+			/>
+			<div
+				class='fixed left-0 top-0 -z-10 flex h-26 w-full -translate-y-full transform-gpu justify-between bg-primary px-7 pt-16 opacity-0 transition-all duration-300 peer-checked:translate-y-0 peer-checked:transform-gpu peer-checked:opacity-100'
+			>
+				<a href='#services'>SERVIÇOS</a>
+				<a href='#about'>SOBRE</a>
+				<a href='#contact'>CONTATO</a>
+			</div>
+		</div>
+		<a href='#top' class='max-md:hidden'>INÍCIO</a>
+		<a href='#services' class='max-md:hidden'>SERVIÇOS</a>
+		<a
+			href='#top'
+			class='max-md:absolute max-md:left-1/2 max-md:-translate-x-1/2'
+		>
+			<Image
+				height={60}
+				class='size-13 max-md:size-10'
+				src={LogoImage}
+				alt='Belozupko & Cipriano'
+				loading='eager'
+				decoding='sync'
+			/>
+		</a>
+		<a href='#about' class='max-md:hidden'>SOBRE</a>
+		<a href='#contact' class='max-md:hidden'>CONTATO</a>
+	</header>
+
+	<main class='flex flex-col items-center'>
+		<div
+			class='flex w-full flex-col items-center bg-gradient-to-b from-primary'
+		>
+			<Picture
+				class='w-full object-cover grayscale-[50%] max-md:h-full'
+				pictureAttributes={{
+					class: 'relative -z-10 w-full max-md:h-40'
+				}}
+				src={HeroImage}
+				height={408}
+				widths={[640, 1280]}
+				alt='Belozupko & Cipriano'
+				loading='eager'
+				decoding='sync'
+				fetchpriority='high'
+			/>
+			<div class='h-2.5 w-full bg-secondary md:h-3.5'></div>
+			<div
+				class='-mt-8 grid h-14 w-80 place-items-center rounded-2xl bg-white shadow-title md:-mt-14 md:h-30 md:w-[45rem]'
+			>
+				<Picture
+					src={FullLogoImage}
+					height={84}
+					widths={[400, 1280]}
+					alt='Belozupko & Cipriano'
+					class='max-md:h-9 max-md:w-auto'
+					loading='eager'
+					decoding='sync'
+				/>
+			</div>
+		</div>
+
+		<section
+			class='mt-6 flex w-full max-w-7xl items-center justify-between text-justify max-md:flex-col max-md:px-3 md:mt-20'
+		>
+			<div class='max-w-md shrink-0'>
+				<h2
+					class='font-serif text-xl text-primary/75 max-md:text-center md:text-3xl'
+				>
+					COM INICIO EM 2021
+				</h2>
+				<p class='mt-2 md:italic'>
+					Belozupko & Cipriano é um escritório de advocacia voltado ao
+					atendimento jurídico com sede na cidade de Rebouças/Paraná.
+				</p>
+			</div>
+			<p class='max-w-xl max-md:mt-7 md:text-right'>
+				Comprometido com a máxima excelência na prestação de serviços, respeito
+				e valorização de seus clientes, engajado com diversas áreas da ciência
+				jurídica, oferece soluções dinâmicas e inovadoras para obtenção de
+				resultados expressivos que garantam a satisfação de seus clientes.
+			</p>
+		</section>
+
+		<section
+			id='services'
+			class='mt-8 w-full max-w-layout scroll-mt-32 max-md:grid max-md:justify-center md:mt-28 md:scroll-mt-24'
+		>
+			<h2
+				class='px-12 text-center font-serif text-xl text-secondary max-md:mx-auto max-md:w-80 md:px-8 md:text-3xl'
+			>
+				OFERECEMOS SERVIÇOS DENTRO DAS ÁREAS
+			</h2>
+			<div
+				class='mt-7 flex snap-x snap-mandatory snap-always gap-3 max-md:overflow-auto max-md:px-3 max-md:pb-4 md:mt-11 md:justify-center md:gap-10'
+				tabindex='0'
+			>
+				{
+					Array.from({ length: 4 }).map(() => (
+						<article class='w-[calc(50%-12px)] shrink-0 snap-center rounded-lg border border-primary p-3 pb-10 shadow-card-mobile md:w-64 md:p-5 md:pb-20 md:shadow-card'>
+							<h3 class='flex items-center gap-2 font-serif text-base text-primary md:text-2xl'>
+								<Icon
+									name='family'
+									width={32}
+									height={32}
+									class='text-primary max-md:w-6'
+									aria-hidden
+								/>
+								Direito Familiar
+							</h3>
+							<p class='mt-3.5 md:mt-7'>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+								sit amet augue vitae est fringilla condimentum molestie id
+								lectus.
+							</p>
+						</article>
+					))
+				}
+			</div>
+		</section>
+
+		<section
+			id='about'
+			class='mt-9 flex w-full scroll-mt-32 flex-col items-center gap-8 md:mt-32 md:scroll-mt-24 md:gap-12'
+		>
+			<div
+				class='flex w-full max-w-layout items-center justify-between max-md:flex-col max-md:text-center'
+			>
+				<h2
+					class='max-w-md font-serif text-xl/5 text-primary max-md:w-52 md:text-3xl/8'
+				>
+					CONHEÇA NOSSA EQUIPE DE ADVOGADOS
+				</h2>
+				<p class='max-w-2xl max-md:mt-3 max-md:w-80 md:text-right'>
+					Nossa atuação profissional é pautada na confiabilidade e proficiência,
+					é de suma importância que você conheça nossa equipe
+				</p>
+			</div>
+
+			<TeamMember
+				image={Team1Image}
+				name='Milena Janaína Belozupko'
+				description='Advogada OAB/PR 93.554'
+				graduation='Graduada em Direito pelo Centro Universitário Vale do Iguaçu – Uniguaçu (2017)'
+				timeline={{
+					Atualmente: [
+						'Pós-Graduanda em Direito Processual Civil pelo Centro Universitário Vale do Iguaçu – Uniguaçu',
+						'Pós-graduanda em Direito Previdenciário pela Faculdade Legale'
+					],
+					'2018 - 2020': [
+						'Estagiária de pós-graduação do Ministério Público do Estado do Paraná'
+					],
+					'2017 - 2018': [
+						'Chefe de Departamento junto à Assessoria Jurídica da Prefeitura Municipal de Rebouças/PR'
+					],
+					'2013 – 2016': [
+						'Estagiária de Direito do Tribunal de Justiça do Estado do Paraná'
+					]
+				}}
+				expertise={[
+					'Direito Civil',
+					'Direito Previdenciário',
+					'Direito da Família',
+					'Direito Administrativo'
+				]}
+			/>
+			<TeamMember
+				image={Team2Image}
+				name='Thiago Cipriano'
+				description='Advogado OAB/PR 74.562'
+				graduation='Graduado em Direito pelo Centro Universitário do Vale do Iguaçu – Uniguaçu (2015)'
+				timeline={{
+					Atualmente: [
+						'Pós-Graduando em Direito Processual Civil e Direito Previdenciário'
+					],
+					'2015 – 2016': [
+						'Assessor de Promotor junto ao Ministério Público do Estado do Paraná',
+						'Nomeado ao cargo efetivo de Advogado Municipal da Prefeitura Municipal de Rebouças'
+					],
+					'2012 - 2014': ['Estagiário do Ministério Público Estadual'],
+					'2008 - 2012': [
+						'Auxiliar administrativo no Sindicato dos Trabalhadores Rurais'
+					]
+				}}
+				expertise={[
+					'Direito Civil',
+					'Direito Previdenciário',
+					'Direito Tributário',
+					'Direito Criminal'
+				]}
+			/>
+		</section>
+		<section class='mt-8 w-full max-w-layout md:mt-18'>
+			<h2
+				class='font-serif text-base text-secondary max-md:text-center md:text-xl'
+			>
+				INFORMAÇÕES
+			</h2>
+			<h3
+				class='font-serif text-xl text-primary max-md:text-center md:text-3xl'
+			>
+				Últimas Postagens
+			</h3>
+			<div class='mt-5 flex gap-16 md:mt-12'>
+				<button
+					id='left'
+					type='button'
+					class='max-md:hidden'
+					aria-label='Anterior'
+				>
+					<Icon
+						name='arrow-left'
+						width={30}
+						height={30}
+						class='max-w-none text-primary'
+					/>
+				</button>
+				<div
+					id='scroll'
+					class='-mt-6 flex snap-x snap-mandatory snap-always gap-8 overflow-auto px-6 py-6 md:overflow-hidden md:px-4'
+					tabindex='0'
+				>
+					{posts.map(post => <Post post={post} />)}
+				</div>
+				<button
+					id='right'
+					type='button'
+					class='max-md:hidden'
+					aria-label='Próximo'
+				>
+					<Icon
+						name='arrow-left'
+						width={30}
+						height={30}
+						class='max-w-none rotate-180 text-primary'
+					/>
+				</button>
+			</div>
+		</section>
+	</main>
+
+	<footer
+		class='mt-14 flex scroll-mt-28 flex-col items-center bg-black/10 md:mt-44'
+	>
+		<div class='h-2.5 w-full bg-secondary md:h-3.5'></div>
+		<div
+			class='-mt-8 flex h-14 w-68 items-center justify-between rounded-2xl bg-white px-4 shadow-title md:-mt-14 md:h-22 md:w-[50rem] md:px-14'
+		>
+			<h2 class='font-serif text-base/4 font-medium md:text-2xl md:uppercase'>
+				Entre em contato conosco!
+			</h2>
+			<div class='flex gap-5 md:gap-14'>
+				<a href='tel:+5542998395419' aria-label='Telefone'>
+					<Icon name='call' width={30} height={30} class='max-md:w-5' />
+				</a>
+				<a href='mailto:belozupkociprianoadv@gmail.com' aria-label='Email'>
+					<Icon name='email' width={30} height={30} class='max-md:w-5' />
+				</a>
+				<a
+					href='https://www.instagram.com/belozupkociprianoadvocacia/'
+					aria-label='Instagram'
+				>
+					<Icon name='instagram' width={30} height={30} class='max-md:w-5' />
+				</a>
+			</div>
+		</div>
+		<form
+			id='contact'
+			class='relative grid place-items-center gap-5 py-5 md:gap-12 md:pb-12 md:pt-20'
+		>
+			<Image
+				src={LogoGray}
+				height={270}
+				class='absolute top-8 -z-10 max-md:h-34 max-md:w-auto'
+				alt='Belozupko & Cipriano'
+			/>
+			<div class='flex gap-6 max-md:flex-col md:gap-48'>
+				<div class='flex flex-col justify-between max-md:gap-4'>
+					<Input name='name' placeholder='Nome' autocomplete='name' required />
+					<Input type='email' name='email' placeholder='E-mail' required />
+					<Input
+						type='number'
+						name='phone'
+						placeholder='Telefone'
+						autocomplete='tel'
+						min={1000000000}
+						required
+					/>
+				</div>
+				<Textarea
+					name='message'
+					placeholder='Deixe sua mensagem aqui'
+					required
+				/>
+			</div>
+			<Button>ENVIAR</Button>
+		</form>
+		<div
+			class='flex w-full flex-col items-center gap-4 bg-primary py-5 text-center font-serif text-lg text-white md:gap-14 md:py-7 md:text-xl'
+		>
+			<div
+				class='grid w-full max-w-4xl gap-4 max-md:grid-rows-2 md:grid-cols-2 md:gap-28'
+			>
+				<p class='flex items-center justify-center gap-2 md:justify-end'>
+					<Icon
+						name='call'
+						width={30}
+						height={30}
+						class='max-md:hidden'
+						aria-hidden
+					/>
+					<span>(42) 9 9839-5419</span>
+				</p>
+				<p class='flex items-center gap-2 max-md:justify-center'>
+					<Icon
+						name='email'
+						width={30}
+						height={30}
+						class='max-md:hidden'
+						aria-hidden
+					/>
+					<span>belozupkociprianoadv@gmail.com</span>
+				</p>
+			</div>
+			<address>
+				R. Abdala Miguel Sarraf, 347<br />Centro, Rebouças - PR, 84550-000
+			</address>
+		</div>
+		<p class='py-1 text-xs'>Todos os direitos reservados | 2023</p>
+	</footer>
+
+	<script>
+		// Carousel
+		const scroll = document.getElementById('scroll')
+		const left = document.getElementById('left')
+		const right = document.getElementById('right')
+
+		function scrollBy(multi: number) {
+			scroll?.scrollBy({
+				left: scroll.offsetWidth * multi,
+				behavior: 'smooth'
+			})
+		}
+		if (scroll && left && right) {
+			left.addEventListener('click', () => {
+				scrollBy(scroll.scrollLeft === 0 ? 3 : -1)
+			})
+			right.addEventListener('click', () => {
+				if (scroll.scrollLeft >= scroll.scrollWidth - scroll.offsetWidth - 1)
+					scrollBy(-3)
+				else scrollBy(1)
+			})
+		}
+
+		// Form
+		const form = document.querySelector<HTMLFormElement>('form#contact')
+		form?.addEventListener('submit', e => {
+			e.preventDefault()
+			const data = new window.FormData(form)
+			const message = `
+					Olá, estou entrando em contato através do site.
+
+					*Nome*: ${data.get('name')}
+					*E-mail*: ${data.get('email')}
+					*Telefone*: ${data.get('phone')}
+					*Mensagem*: ${data.get('message')}
+				`
+			window.open(
+				'https://wa.me/+5542998395419?text=' +
+					encodeURIComponent(message.replaceAll('\t', '').trim())
+			)
+			form.reset()
+		})
+	</script>
+</Base>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang='pt-BR' class='scroll-smooth has-[dialog[open]]:overflow-hidden'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width, initial-scale=1' />
+		<!-- Icons -->
+		<link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
+		<link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
+		<link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
+		<!-- SEO -->
+		<meta name='description' content='Escritório de Advocacia' />
+		<meta name='generator' content={Astro.generator} />
+		<title>Belozupko & Cipriano Advocacia</title>
+		<!-- Fonts -->
+		<link
+			rel='preload'
+			href='/fonts/crimson-pro-variable.woff2'
+			as='font'
+			type='font/woff2'
+			crossorigin
+		/>
+		<link
+			rel='preload'
+			href='/fonts/open-sans-variable.woff2'
+			as='font'
+			type='font/woff2'
+			crossorigin
+		/>
+		<style is:inline>
+			@font-face {
+				font-family: 'Crimson Pro Variable Fallback';
+				size-adjust: 89%;
+				font-display: swap;
+				src: local('Times New Roman');
+			}
+			@font-face {
+				font-family: 'Crimson Pro Variable';
+				font-style: normal;
+				font-weight: 200 900;
+				font-display: swap;
+				src: url(/fonts/crimson-pro-variable.woff2) format('woff2');
+			}
+			@font-face {
+				font-family: 'Open Sans Variable Fallback';
+				size-adjust: 104%;
+				ascent-override: 103%;
+				descent-override: 24%;
+				font-display: swap;
+				src: local('Arial');
+			}
+			@font-face {
+				font-family: 'Open Sans Variable';
+				font-style: normal;
+				font-weight: 300 800;
+				font-stretch: 100%;
+				font-display: swap;
+				src: url(/fonts/open-sans-variable.woff2) format('woff2');
+			}
+		</style>
+	</head>
+	<body class='text-sm text-black/75 md:text-base'>
+		<slot />
+	</body>
+</html>

@@ -1,0 +1,46 @@
+{
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"lint:astro": "astro check",
+		"lint:tsc": "tsc",
+		"lint:eslint": "eslint --fix --cache --ext .astro,.ts,.cjs .",
+		"lint:prettier": "prettier --check --cache .",
+		"lint": "run-p lint:*",
+		"format": "prettier --write --cache ."
+	},
+	"devDependencies": {
+		"@astrojs/check": "0.3.4",
+		"@astrojs/tailwind": "5.0.4",
+		"@tailwindcss/typography": "0.5.10",
+		"@types/hast": "3.0.3",
+		"@typescript-eslint/eslint-plugin": "6.15.0",
+		"@typescript-eslint/parser": "6.15.0",
+		"astro": "4.0.7",
+		"eslint": "8.56.0",
+		"eslint-plugin-astro": "0.31.0",
+		"eslint-plugin-jsx-a11y": "6.8.0",
+		"hast-util-is-css-link": "3.0.0",
+		"npm-run-all": "4.1.5",
+		"prettier": "3.1.1",
+		"prettier-plugin-astro": "0.12.2",
+		"prettier-plugin-tailwindcss": "0.5.9",
+		"rehype": "13.0.1",
+		"sharp": "0.33.1",
+		"tailwindcss": "3.4.0",
+		"typescript": "5.3.3",
+		"unist-util-visit": "5.0.0"
+	},
+	"engines": {
+		"node": ">=20.10.0"
+	},
+	"packageManager": "pnpm@8.10.0",
+	"pnpm": {
+		"patchedDependencies": {
+			"tailwindcss@3.4.0": "patches/tailwindcss@3.4.0.patch"
+		}
+	}
+}

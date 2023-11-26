@@ -1,0 +1,10 @@
+---
+interface Props extends astroHTML.JSX.SVGAttributes {
+	name: string
+}
+const { name, ...rest } = Astro.props
+---
+
+<svg {...rest}>
+	<use href={`/icons/${name}.svg#root`}></use>
+</svg>

@@ -1,0 +1,6 @@
+dist/
+node_modules/
+pnpm-debug.log*
+.DS_Store
+tsconfig.tsbuildinfo
+.eslintcache

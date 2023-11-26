@@ -1,0 +1,36 @@
+{
+	"root": true,
+	"extends": ["eslint:recommended"],
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"overrides": [
+		{
+			"files": ["*.ts"],
+			"extends": [
+				"plugin:@typescript-eslint/strict-type-checked",
+				"plugin:@typescript-eslint/stylistic-type-checked"
+			],
+			"parserOptions": {
+				"project": true
+			}
+		},
+		{
+			"files": ["*.astro"],
+			"extends": ["plugin:astro/all", "plugin:astro/jsx-a11y-strict"],
+			"rules": {
+				"astro/no-unused-css-selector": "off", // No vanilla CSS
+				"astro/no-unused-define-vars-in-style": "off",
+				"astro/semi": "off" // Prettier
+			}
+		},
+		{
+			"files": ["**/*.astro/*.js", "*.astro/*.js"],
+			"extends": [
+				"plugin:@typescript-eslint/strict",
+				"plugin:@typescript-eslint/stylistic"
+			]
+		}
+	]
+}

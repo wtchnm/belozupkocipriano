@@ -1,3 +1,9 @@
+---
+import { getCollection } from 'astro:content'
+
+const posts = await getCollection('posts')
+---
+
 <!doctype html>
 <html lang='en'>
 	<head>
@@ -18,7 +24,23 @@
 		</style>
 	</head>
 	<body class='antialiased'>
-		<h1 class='px-4 text-gray-500'>Hello!</h1>
+		{
+			posts.map(async post => {
+				const { Content } = await post.render()
+				return (
+					<>
+						<article>
+							<h2>{post.data.title}</h2>
+							<p>{post.data.date}</p>
+							<div>
+								<Content />
+							</div>
+						</article>
+						<hr />
+					</>
+				)
+			})
+		}
 
 		<!-- Netlify Identity -->
 		<script

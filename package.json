@@ -26,6 +26,7 @@
 		"prettier": "3.1.0",
 		"prettier-plugin-astro": "0.12.2",
 		"prettier-plugin-tailwindcss": "0.5.7",
+		"sharp": "0.32.6",
 		"tailwindcss": "3.3.5",
 		"typescript": "5.3.2"
 	},

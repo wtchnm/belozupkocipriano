@@ -1,46 +1,189 @@
 ---
+import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content'
+import HeroImage from '../assets/hero.jpeg'
+import LogoImage from '../assets/logo.jpeg'
+import FullLogoImage from '../assets/logo-full.png'
+import Team1Image from '../assets/team-1.png'
+import Team2Image from '../assets/team-2.png'
+import TeamMember from '../components/TeamMember.astro'
 
 const posts = await getCollection('posts')
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang='pt-BR' class='scroll-smooth'>
 	<head>
 		<meta charset='UTF-8' />
 		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
 		<meta name='viewport' content='width=device-width' />
 		<meta name='generator' content={Astro.generator} />
-		<title>Lastro</title>
-		<style is:inline>
-			@font-face {
-				font-family: 'Inter var';
-				font-style: normal;
-				font-weight: 100 900;
-				font-display: swap;
-				src: url('/Inter.woff2') format('woff2');
-				font-named-instance: 'Regular';
-			}
-		</style>
+		<title>Belozupko & Cipriano Advocacia</title>
+		<link rel='preconnect' href='https://fonts.googleapis.com' />
+		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+		<link
+			href='https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500&family=Open+Sans:wght@300;400;500&display=swap'
+			rel='stylesheet'
+		/>
 	</head>
 	<body class='antialiased'>
-		{
-			posts.map(async post => {
-				const { Content } = await post.render()
-				return (
-					<>
-						<article>
-							<h2>{post.data.title}</h2>
-							<p>{post.data.date}</p>
-							<div>
-								<Content />
-							</div>
-						</article>
-						<hr />
-					</>
-				)
-			})
-		}
+		<header
+			class='h-25 sticky top-0 flex items-center justify-center gap-34 bg-primary font-serif text-3xl text-white'
+		>
+			<a href='#top'>INÍCIO</a>
+			<a href='#services'>ATUAÇÃO</a>
+			<Image height={64} src={LogoImage} alt='Belozupko & Cipriano' />
+			<a href='#about'>SOBRE</a>
+			<a href='#contact'>CONTATO</a>
+		</header>
+
+		<main class='flex flex-col items-center'>
+			<div
+				class='flex w-full flex-col items-center bg-gradient-to-b from-primary'
+			>
+				<Image
+					class='relative -z-10 h-[33.5rem] w-full object-cover grayscale-[50%]'
+					src={HeroImage}
+					height={536}
+					alt='Belozupko & Cipriano'
+				/>
+				<div class='bg h-6 w-full bg-secondary'></div>
+				<div
+					class='-mt-16 grid h-30 w-[50rem] place-items-center rounded-2xl bg-white shadow-title'
+				>
+					<Image src={FullLogoImage} height={85} alt='Belozupko & Cipriano' />
+				</div>
+			</div>
+
+			<section
+				class='mt-28 flex w-full max-w-7xl items-center justify-between tracking-tight'
+			>
+				<div class='max-w-md shrink-0'>
+					<h2 class='font-serif text-3xl tracking-minimum text-primary/75'>
+						COM INICIO EM 2021
+					</h2>
+					<p class='mt-2'>
+						Belozupko & Cipriano é um escritório de advocacia voltado ao
+						atendimento jurídico com sede na cidade de Rebouças/Paraná.
+					</p>
+				</div>
+				<p class='max-w-2xl'>
+					Comprometido com a máxima excelência na prestação de serviços,
+					respeito e valorização de seus clientes, engajado com diversas áreas
+					da ciência jurídica, oferece soluções dinâmicas e inovadoras para
+					obtenção de resultados expressivos que garantam a satisfação de seus
+					clientes.
+				</p>
+			</section>
+
+			<section class='mt-28 w-full max-w-layout'>
+				<h2 class='font-serif text-3xl text-secondary'>
+					OFERECEMOS SERVIÇOS DENTRO DAS ÁREAS
+				</h2>
+				<div class='mt-8 flex gap-10'>
+					{
+						Array.from({ length: 4 }).map(() => (
+							<article class='rounded-lg border border-primary p-6 pb-11 shadow-card'>
+								<h3 class='flex items-center gap-8 font-serif text-2xl text-primary'>
+									<img src='/family.svg' alt='' />
+									Direito Familiar
+								</h3>
+								<p class='mt-8'>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+									sit amet augue vitae est fringilla condimentum molestie id
+									lectus. Lorem ipsum dolor sit amet, consectetur adipiscing
+									elit. Nulla sit amet augue vitae est fringilla condimentum
+									molestie id lectus.
+								</p>
+							</article>
+						))
+					}
+				</div>
+			</section>
+
+			<section class='mt-22 flex w-full flex-col items-center gap-10'>
+				<div class='flex w-full max-w-layout items-center justify-between'>
+					<h2 class='max-w-md font-serif text-3xl/8 text-primary'>
+						CONHEÇA NOSSA EQUIPE DE ADVOGADOS
+					</h2>
+					<p class='text-black/75 max-w-2xl text-right tracking-tight'>
+						Nossa atuação profissional é pautada na confiabilidade e
+						proficiência, é de suma importância que você conheça nossa equipe
+					</p>
+				</div>
+
+				<TeamMember
+					image={Team1Image}
+					name='Mylena Janaína Belozupko'
+					description='Advogada OAB/PR 93.554'
+					graduation='Graduada em Direito pelo Centro Universitário Vale do Iguaçu – Uniguaçu (2017)'
+					timeline={{
+						Atualmente: [
+							'Pós-Graduanda em Direito Processual Civil pelo Centro Universitário Vale do Iguaçu – Uniguaçu',
+							'Pós-graduanda em Direito Previdenciário pela Faculdade Legale'
+						],
+						'2018 - 2020': [
+							'Estagiária de pós-graduação do Ministério Público do Estado do Paraná'
+						],
+						'2017 - 2018': [
+							'Chefe de Departamento junto à Assessoria Jurídica da Prefeitura Municipal de Rebouças/PR'
+						],
+						'2013 – 2016': [
+							'Estagiária de Direito do Tribunal de Justiça do Estado do Paraná'
+						]
+					}}
+					expertise={[
+						'Direito Civil',
+						'Direito Previdenciário',
+						'Direito da Família',
+						'Direito Administrativo'
+					]}
+				/>
+				<TeamMember
+					image={Team2Image}
+					name='Thiago Cipriano'
+					description='Advogado OAB/PR 74.562'
+					graduation='Graduado em Direito pelo Centro Universitário do Vale do Iguaçu – Uniguaçu (2015)'
+					timeline={{
+						Atualmente: [
+							'Pós-Graduando em Direito Processual Civil e Direito Previdenciário'
+						],
+						'2015 – 2016': [
+							'Assessor de Promotor junto ao Ministério Público do Estado do Paraná',
+							'Nomeado ao cargo efetivo de Advogado Municipal da Prefeitura Municipal de Rebouças'
+						],
+						'2012 - 2014': ['Estagiário do Ministério Público Estadual'],
+						'2008 - 2012': [
+							'Auxiliar administrativo no Sindicato dos Trabalhadores Rurais'
+						]
+					}}
+					expertise={[
+						'Direito Civil',
+						'Direito Previdenciário',
+						'Direito Tributário',
+						'Direito Criminal'
+					]}
+				/>
+			</section>
+
+			<!-- {
+				posts.map(async post => {
+					const { Content } = await post.render()
+					return (
+						<>
+							<article>
+								<h2>{post.data.title}</h2>
+								<p>{post.data.date}</p>
+								<div>
+									<Content />
+								</div>
+							</article>
+							<hr />
+						</d>
+					)
+				})
+			} -->
+		</main>
 
 		<!-- Netlify Identity -->
 		<script

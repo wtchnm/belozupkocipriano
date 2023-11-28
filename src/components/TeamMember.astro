@@ -1,0 +1,55 @@
+---
+import { Image, type LocalImageProps } from 'astro:assets'
+interface Props {
+	image: LocalImageProps['src']
+	name: string
+	description: string
+	graduation: string
+	timeline: Record<string, string[]>
+	expertise: string[]
+}
+const { image, name, description, graduation, timeline, expertise } = Astro.props
+---
+
+<article class='bg-black/10 flex w-full justify-center py-18'>
+	<div class='flex w-full max-w-layout items-start gap-8'>
+		<Image
+			src={image}
+			alt={name}
+			width={200}
+			height={200}
+			class='rounded-full'
+		/>
+		<div>
+			<div class='grid gap-3 font-serif'>
+				<h2 class='text-2xl font-medium text-primary'>
+					{name}
+				</h2>
+				<p class='text-xl text-primary/75'>{description}</p>
+				<p class='text-xl text-primary/75'>
+					{graduation}
+				</p>
+			</div>
+			<ul class='ml-6 mt-9 max-w-3xl tracking-tight'>
+				{
+					Object.entries(timeline).map(([title, items]) => (
+						<li>
+							<p class='font-medium'>{title}</p>
+							<ul class='ml-8'>
+								{items.map(item => (
+									<li>{item}</li>
+								))}
+							</ul>
+						</li>
+					))
+				}
+			</ul>
+			<div class='mt-9 tracking-tight'>
+				<p>Experiência profissional no âmbito</p>
+				<ul class='ml-6'>
+					{expertise.map(item => <li>{item}</li>)}
+				</ul>
+			</div>
+		</div>
+	</div>
+</article>

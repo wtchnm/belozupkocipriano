@@ -1,0 +1,94 @@
+---
+import Icon from './Icon.astro'
+import Textarea from '../components/Textarea.astro'
+import LogoGray from '../assets/logo-gray.png'
+import { Image } from 'astro:assets'
+import Button from '../components/Button.astro'
+import Input from '../components/Input.astro'
+---
+
+<footer
+	class='mt-14 flex scroll-mt-28 flex-col items-center bg-black/10 md:mt-44'
+>
+	<div class='h-2.5 w-full bg-secondary md:h-3.5'></div>
+	<div
+		class='-mt-8 flex h-14 w-68 items-center justify-between rounded-2xl bg-white px-4 shadow-title md:-mt-14 md:h-22 md:w-[50rem] md:px-14'
+	>
+		<h2 class='font-serif text-base/4 font-medium md:text-2xl md:uppercase'>
+			Entre em contato conosco!
+		</h2>
+		<div class='flex gap-5 md:gap-14'>
+			<a href='tel:+5542998395419' aria-label='Telefone'>
+				<Icon name='call' width={30} height={30} class='max-md:w-5' />
+			</a>
+			<a href='mailto:belozupkociprianoadv@gmail.com' aria-label='Email'>
+				<Icon name='email' width={30} height={30} class='max-md:w-5' />
+			</a>
+			<a
+				href='https://www.instagram.com/belozupkociprianoadvocacia/'
+				aria-label='Instagram'
+			>
+				<Icon name='instagram' width={30} height={30} class='max-md:w-5' />
+			</a>
+		</div>
+	</div>
+	<form
+		id='contact'
+		class='relative grid place-items-center gap-5 py-5 md:gap-12 md:pb-12 md:pt-20'
+	>
+		<Image
+			src={LogoGray}
+			height={270}
+			class='absolute top-8 -z-10 max-md:h-34 max-md:w-auto'
+			alt='Belozupko & Cipriano'
+		/>
+		<div class='flex gap-6 max-md:flex-col md:gap-48'>
+			<div class='flex flex-col justify-between max-md:gap-4'>
+				<Input name='name' placeholder='Nome' autocomplete='name' required />
+				<Input type='email' name='email' placeholder='E-mail' required />
+				<Input
+					type='number'
+					name='phone'
+					placeholder='Telefone'
+					autocomplete='tel'
+					min={1000000000}
+					required
+				/>
+			</div>
+			<Textarea name='message' placeholder='Deixe sua mensagem aqui' required />
+		</div>
+		<Button>ENVIAR</Button>
+	</form>
+	<div
+		class='flex w-full flex-col items-center gap-4 bg-primary py-5 text-center font-serif text-lg text-white md:gap-14 md:py-7 md:text-xl'
+	>
+		<div
+			class='grid w-full max-w-4xl gap-4 max-md:grid-rows-2 md:grid-cols-2 md:gap-28'
+		>
+			<p class='flex items-center justify-center gap-2 md:justify-end'>
+				<Icon
+					name='call'
+					width={30}
+					height={30}
+					class='max-md:hidden'
+					aria-hidden
+				/>
+				<span>(42) 9 9839-5419</span>
+			</p>
+			<p class='flex items-center gap-2 max-md:justify-center'>
+				<Icon
+					name='email'
+					width={30}
+					height={30}
+					class='max-md:hidden'
+					aria-hidden
+				/>
+				<span>belozupkociprianoadv@gmail.com</span>
+			</p>
+		</div>
+		<address>
+			R. Abdala Miguel Sarraf, 347<br />Centro, Rebouças - PR, 84550-000
+		</address>
+	</div>
+	<p class='py-1 text-xs'>Todos os direitos reservados | 2023</p>
+</footer>

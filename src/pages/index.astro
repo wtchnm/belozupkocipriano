@@ -1,69 +1,23 @@
 ---
-import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content'
 import HeroImage from '../assets/hero.jpeg'
 import FullLogoImage from '../assets/logo-full.png'
-import LogoGray from '../assets/logo-gray.png'
-import LogoImage from '../assets/logo.jpeg'
 import Team1Image from '../assets/team-1.png'
 import Team2Image from '../assets/team-2.png'
-import Button from '../components/Button.astro'
 import Icon from '../components/Icon.astro'
-import Input from '../components/Input.astro'
 import Post from '../components/Post.astro'
 import TeamMember from '../components/TeamMember.astro'
-import Textarea from '../components/Textarea.astro'
 import Picture from '../components/Picture.astro'
 import Base from '../layouts/Base.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
 
 let posts = await getCollection('posts')
 posts = [...posts, ...posts, ...posts]
 ---
 
 <Base>
-	<header
-		class='sticky top-0 flex h-14 items-center gap-40 bg-primary font-serif text-xl text-white md:h-18 md:justify-center md:text-2xl'
-	>
-		<div class='relative md:hidden'>
-			<Icon
-				name='hamburger'
-				width={24}
-				height={24}
-				class='relative left-4 z-10 text-secondary'
-				aria-label='Menu'
-			/>
-			<input
-				type='checkbox'
-				class='peer absolute top-0 z-10 size-8 opacity-0'
-				aria-label='Menu'
-			/>
-			<div
-				class='fixed left-0 top-0 -z-10 flex h-26 w-full -translate-y-full transform-gpu justify-between bg-primary px-7 pt-16 opacity-0 transition-all duration-300 peer-checked:translate-y-0 peer-checked:transform-gpu peer-checked:opacity-100'
-			>
-				<a href='#services'>SERVIÇOS</a>
-				<a href='#about'>SOBRE</a>
-				<a href='#contact'>CONTATO</a>
-			</div>
-		</div>
-		<a href='#top' class='max-md:hidden'>INÍCIO</a>
-		<a href='#services' class='max-md:hidden'>SERVIÇOS</a>
-		<a
-			href='#top'
-			class='max-md:absolute max-md:left-1/2 max-md:-translate-x-1/2'
-		>
-			<Image
-				height={60}
-				class='size-13 max-md:size-10'
-				src={LogoImage}
-				alt='Belozupko & Cipriano'
-				loading='eager'
-				decoding='sync'
-			/>
-		</a>
-		<a href='#about' class='max-md:hidden'>SOBRE</a>
-		<a href='#contact' class='max-md:hidden'>CONTATO</a>
-	</header>
-
+	<Header />
 	<main class='flex flex-col items-center'>
 		<div
 			class='flex w-full flex-col items-center bg-gradient-to-b from-primary'
@@ -275,96 +229,7 @@ posts = [...posts, ...posts, ...posts]
 			</div>
 		</section>
 	</main>
-
-	<footer
-		class='mt-14 flex scroll-mt-28 flex-col items-center bg-black/10 md:mt-44'
-	>
-		<div class='h-2.5 w-full bg-secondary md:h-3.5'></div>
-		<div
-			class='-mt-8 flex h-14 w-68 items-center justify-between rounded-2xl bg-white px-4 shadow-title md:-mt-14 md:h-22 md:w-[50rem] md:px-14'
-		>
-			<h2 class='font-serif text-base/4 font-medium md:text-2xl md:uppercase'>
-				Entre em contato conosco!
-			</h2>
-			<div class='flex gap-5 md:gap-14'>
-				<a href='tel:+5542998395419' aria-label='Telefone'>
-					<Icon name='call' width={30} height={30} class='max-md:w-5' />
-				</a>
-				<a href='mailto:belozupkociprianoadv@gmail.com' aria-label='Email'>
-					<Icon name='email' width={30} height={30} class='max-md:w-5' />
-				</a>
-				<a
-					href='https://www.instagram.com/belozupkociprianoadvocacia/'
-					aria-label='Instagram'
-				>
-					<Icon name='instagram' width={30} height={30} class='max-md:w-5' />
-				</a>
-			</div>
-		</div>
-		<form
-			id='contact'
-			class='relative grid place-items-center gap-5 py-5 md:gap-12 md:pb-12 md:pt-20'
-		>
-			<Image
-				src={LogoGray}
-				height={270}
-				class='absolute top-8 -z-10 max-md:h-34 max-md:w-auto'
-				alt='Belozupko & Cipriano'
-			/>
-			<div class='flex gap-6 max-md:flex-col md:gap-48'>
-				<div class='flex flex-col justify-between max-md:gap-4'>
-					<Input name='name' placeholder='Nome' autocomplete='name' required />
-					<Input type='email' name='email' placeholder='E-mail' required />
-					<Input
-						type='number'
-						name='phone'
-						placeholder='Telefone'
-						autocomplete='tel'
-						min={1000000000}
-						required
-					/>
-				</div>
-				<Textarea
-					name='message'
-					placeholder='Deixe sua mensagem aqui'
-					required
-				/>
-			</div>
-			<Button>ENVIAR</Button>
-		</form>
-		<div
-			class='flex w-full flex-col items-center gap-4 bg-primary py-5 text-center font-serif text-lg text-white md:gap-14 md:py-7 md:text-xl'
-		>
-			<div
-				class='grid w-full max-w-4xl gap-4 max-md:grid-rows-2 md:grid-cols-2 md:gap-28'
-			>
-				<p class='flex items-center justify-center gap-2 md:justify-end'>
-					<Icon
-						name='call'
-						width={30}
-						height={30}
-						class='max-md:hidden'
-						aria-hidden
-					/>
-					<span>(42) 9 9839-5419</span>
-				</p>
-				<p class='flex items-center gap-2 max-md:justify-center'>
-					<Icon
-						name='email'
-						width={30}
-						height={30}
-						class='max-md:hidden'
-						aria-hidden
-					/>
-					<span>belozupkociprianoadv@gmail.com</span>
-				</p>
-			</div>
-			<address>
-				R. Abdala Miguel Sarraf, 347<br />Centro, Rebouças - PR, 84550-000
-			</address>
-		</div>
-		<p class='py-1 text-xs'>Todos os direitos reservados | 2023</p>
-	</footer>
+	<Footer />
 
 	<script>
 		// Carousel

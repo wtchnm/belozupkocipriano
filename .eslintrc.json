@@ -10,7 +10,8 @@
 			"files": ["*.ts"],
 			"extends": [
 				"plugin:@typescript-eslint/strict-type-checked",
-				"plugin:@typescript-eslint/stylistic-type-checked"
+				"plugin:@typescript-eslint/stylistic-type-checked",
+				"prettier"
 			],
 			"parserOptions": {
 				"project": true
@@ -18,7 +19,11 @@
 		},
 		{
 			"files": ["*.astro"],
-			"extends": ["plugin:astro/all", "plugin:astro/jsx-a11y-strict"],
+			"extends": [
+				"plugin:astro/all",
+				"plugin:astro/jsx-a11y-strict",
+				"prettier"
+			],
 			"globals": {
 				"astroHTML": "readonly"
 			},
@@ -33,7 +38,8 @@
 			"files": ["**/*.astro/*.js", "*.astro/*.js"],
 			"extends": [
 				"plugin:@typescript-eslint/strict",
-				"plugin:@typescript-eslint/stylistic"
+				"plugin:@typescript-eslint/stylistic",
+				"prettier"
 			],
 			"env": {
 				"browser": true

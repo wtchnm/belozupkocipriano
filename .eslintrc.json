@@ -5,12 +5,6 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"globals": {
-		"window": "readonly",
-		"document": "readonly",
-		"astroHTML": "readonly",
-		"HTMLFormElement": "readonly"
-	},
 	"overrides": [
 		{
 			"files": ["*.ts"],
@@ -25,6 +19,9 @@
 		{
 			"files": ["*.astro"],
 			"extends": ["plugin:astro/all", "plugin:astro/jsx-a11y-strict"],
+			"globals": {
+				"astroHTML": "readonly"
+			},
 			"rules": {
 				"astro/no-unused-css-selector": "off", // No vanilla CSS
 				"astro/no-unused-define-vars-in-style": "off",
@@ -37,7 +34,10 @@
 			"extends": [
 				"plugin:@typescript-eslint/strict",
 				"plugin:@typescript-eslint/stylistic"
-			]
+			],
+			"env": {
+				"browser": true
+			}
 		}
 	]
 }

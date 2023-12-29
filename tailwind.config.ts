@@ -37,10 +37,6 @@ export default {
 					...defaultTheme.fontFamily.serif
 				]
 			},
-			fontSize: {
-				'3.75xl': '2.1875rem',
-				'4.5xl': '2.5rem'
-			},
 			spacing: {
 				13: '3.25rem',
 				18: '4.5rem',
@@ -48,7 +44,6 @@ export default {
 				25: '6.25rem',
 				26: '6.5rem',
 				30: '7.5rem',
-				32.5: '8.125rem',
 				34: '8.5rem',
 				68: '17rem'
 			},

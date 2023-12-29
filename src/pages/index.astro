@@ -11,6 +11,7 @@ import Picture from '../components/Picture.astro'
 import Base from '../layouts/Base.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import Ruler from '../components/Ruler.astro'
 
 let posts = await getCollection('posts')
 posts = [...posts, ...posts, ...posts]
@@ -35,7 +36,7 @@ posts = [...posts, ...posts, ...posts]
 				decoding='sync'
 				fetchpriority='high'
 			/>
-			<div class='h-2.5 w-full bg-secondary md:h-3.5'></div>
+			<Ruler />
 			<div
 				class='-mt-8 grid h-14 w-80 place-items-center rounded-2xl bg-white shadow-title md:-mt-14 md:h-30 md:w-[45rem]'
 			>

@@ -230,7 +230,6 @@ posts = [...posts, ...posts, ...posts]
 		</section>
 	</main>
 	<Footer />
-
 	<script>
 		// Carousel
 		const scroll = document.getElementById('scroll')
@@ -253,25 +252,5 @@ posts = [...posts, ...posts, ...posts]
 				else scrollBy(1)
 			})
 		}
-
-		// Form
-		const form = document.querySelector<HTMLFormElement>('form#contact')
-		form?.addEventListener('submit', e => {
-			e.preventDefault()
-			const data = new window.FormData(form)
-			const message = `
-					Olá, estou entrando em contato através do site.
-
-					*Nome*: ${data.get('name')}
-					*E-mail*: ${data.get('email')}
-					*Telefone*: ${data.get('phone')}
-					*Mensagem*: ${data.get('message')}
-				`
-			window.open(
-				'https://wa.me/+5542998395419?text=' +
-					encodeURIComponent(message.replaceAll('\t', '').trim())
-			)
-			form.reset()
-		})
 	</script>
 </Base>

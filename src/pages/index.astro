@@ -4,7 +4,6 @@ import HeroImage from '../assets/hero.jpeg'
 import FullLogoImage from '../assets/logo-full.png'
 import Team1Image from '../assets/team-1.png'
 import Team2Image from '../assets/team-2.png'
-import Icon from '../components/Icon.astro'
 import Post from '../components/Post.astro'
 import TeamMember from '../components/TeamMember.astro'
 import Picture from '../components/Picture.astro'
@@ -13,9 +12,10 @@ import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import Ruler from '../components/Ruler.astro'
 import Service from '../components/Service.astro'
+import Carousel from '../components/Carousel.astro'
 
 let posts = await getCollection('posts')
-posts = [...posts, ...posts, ...posts]
+posts = [...posts, ...posts]
 ---
 
 <Base>
@@ -174,65 +174,10 @@ posts = [...posts, ...posts, ...posts]
 			>
 				Últimas Postagens
 			</h3>
-			<div class='mt-5 flex gap-16 md:mt-12'>
-				<button
-					id='left'
-					type='button'
-					class='max-md:hidden'
-					aria-label='Anterior'
-				>
-					<Icon
-						name='arrow-left'
-						width={30}
-						height={30}
-						class='max-w-none text-primary'
-					/>
-				</button>
-				<div
-					id='scroll'
-					class='-mt-6 flex snap-x snap-mandatory snap-always gap-8 overflow-auto px-6 py-6 md:overflow-hidden md:px-4'
-					tabindex='0'
-				>
-					{posts.map(post => <Post post={post} />)}
-				</div>
-				<button
-					id='right'
-					type='button'
-					class='max-md:hidden'
-					aria-label='Próximo'
-				>
-					<Icon
-						name='arrow-left'
-						width={30}
-						height={30}
-						class='max-w-none rotate-180 text-primary'
-					/>
-				</button>
-			</div>
+			<Carousel>
+				{posts.map(post => <Post post={post} />)}
+			</Carousel>
 		</section>
 	</main>
 	<Footer />
-	<script>
-		// Carousel
-		const scroll = document.getElementById('scroll')
-		const left = document.getElementById('left')
-		const right = document.getElementById('right')
-
-		function scrollBy(multi: number) {
-			scroll?.scrollBy({
-				left: scroll.offsetWidth * multi,
-				behavior: 'smooth'
-			})
-		}
-		if (scroll && left && right) {
-			left.addEventListener('click', () => {
-				scrollBy(scroll.scrollLeft === 0 ? 3 : -1)
-			})
-			right.addEventListener('click', () => {
-				if (scroll.scrollLeft >= scroll.scrollWidth - scroll.offsetWidth - 1)
-					scrollBy(-3)
-				else scrollBy(1)
-			})
-		}
-	</script>
 </Base>

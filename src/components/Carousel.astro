@@ -1,0 +1,52 @@
+---
+import Icon from '../components/Icon.astro'
+---
+
+<div class='mt-5 flex gap-16 md:mt-12'>
+	<button id='left' type='button' class='max-md:hidden' aria-label='Anterior'>
+		<Icon
+			name='arrow-left'
+			width={30}
+			height={30}
+			class='max-w-none text-primary'
+		/>
+	</button>
+	<div
+		id='scroll'
+		class='-mt-6 flex snap-x snap-mandatory snap-always gap-8 overflow-auto px-6 py-6 md:overflow-hidden md:px-4'
+		tabindex='0'
+	>
+		<slot />
+	</div>
+	<button id='right' type='button' class='max-md:hidden' aria-label='Próximo'>
+		<Icon
+			name='arrow-left'
+			width={30}
+			height={30}
+			class='max-w-none rotate-180 text-primary'
+		/>
+	</button>
+</div>
+<script>
+	// Carousel
+	const scroll = document.getElementById('scroll')
+	const left = document.getElementById('left')
+	const right = document.getElementById('right')
+
+	function scrollBy(multi: number) {
+		scroll?.scrollBy({
+			left: scroll.offsetWidth * multi,
+			behavior: 'smooth'
+		})
+	}
+	if (scroll && left && right) {
+		left.addEventListener('click', () => {
+			scrollBy(scroll.scrollLeft === 0 ? 3 : -1)
+		})
+		right.addEventListener('click', () => {
+			if (scroll.scrollLeft >= scroll.scrollWidth - scroll.offsetWidth - 1)
+				scrollBy(-3)
+			else scrollBy(1)
+		})
+	}
+</script>

@@ -28,25 +28,31 @@ import Icon from '../components/Icon.astro'
 	</button>
 </div>
 <script>
-	// Carousel
 	const scroll = document.getElementById('scroll')
 	const left = document.getElementById('left')
 	const right = document.getElementById('right')
 
-	function scrollBy(multi: number) {
+	function scrollBy(left: number) {
 		scroll?.scrollBy({
-			left: scroll.offsetWidth * multi,
+			left,
 			behavior: 'smooth'
 		})
 	}
+
 	if (scroll && left && right) {
 		left.addEventListener('click', () => {
-			scrollBy(scroll.scrollLeft === 0 ? 3 : -1)
+			scrollBy(
+				scroll.scrollLeft === 0 ? scroll.scrollWidth : -scroll.offsetWidth
+			)
 		})
+
 		right.addEventListener('click', () => {
-			if (scroll.scrollLeft >= scroll.scrollWidth - scroll.offsetWidth - 1)
-				scrollBy(-3)
-			else scrollBy(1)
+			const remainingScroll = scroll.scrollWidth - scroll.offsetWidth - 1
+			const amount =
+				scroll.scrollLeft >= remainingScroll
+					? -scroll.scrollLeft
+					: scroll.offsetWidth
+			scrollBy(amount)
 		})
 	}
 </script>

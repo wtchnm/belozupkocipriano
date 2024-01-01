@@ -7,7 +7,7 @@
 		"preview": "astro preview",
 		"lint:astro": "astro check",
 		"lint:tsc": "tsc",
-		"lint:eslint": "eslint --fix --cache --ext .astro,.ts,.cjs .",
+		"lint:eslint": "eslint --fix --cache --ext .astro,.ts .",
 		"lint:prettier": "prettier --check --cache .",
 		"lint": "run-p lint:*",
 		"format": "prettier --write --cache ."
@@ -42,6 +42,9 @@
 	"pnpm": {
 		"patchedDependencies": {
 			"tailwindcss@3.4.0": "patches/tailwindcss@3.4.0.patch"
+		},
+		"overrides": {
+			"semver@<5.7.2": ">=5.7.2"
 		}
 	}
 }

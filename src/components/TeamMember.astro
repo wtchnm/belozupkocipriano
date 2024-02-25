@@ -21,10 +21,10 @@ const { reverse, image, name, description, graduation, timeline } = Astro.props
 		<Image
 			src={image}
 			alt={name}
-			width={200}
-			height={200}
+			width={300}
+			height={300}
 			class:list={[
-				'row-span-3 w-auto rounded-full max-md:size-25',
+				'row-span-3 size-25 w-auto rounded-full md:size-[200px]',
 				reverse && 'col-start-2'
 			]}
 		/>

@@ -9,7 +9,7 @@ overrides:
 
 patchedDependencies:
   tailwindcss@3.4.1:
-    hash: emmcsb6gax5qlgoyf2epjf5p5u
+    hash: ol6opotpkikolkxplv45u4o26e
     path: patches/tailwindcss@3.4.1.patch
 
 devDependencies:
@@ -69,7 +69,7 @@ devDependencies:
     version: 0.33.2
   tailwindcss:
     specifier: 3.4.1
-    version: 3.4.1(patch_hash=emmcsb6gax5qlgoyf2epjf5p5u)
+    version: 3.4.1(patch_hash=ol6opotpkikolkxplv45u4o26e)
   typescript:
     specifier: 5.3.3
     version: 5.3.3
@@ -198,7 +198,7 @@ packages:
       autoprefixer: 10.4.16(postcss@8.4.32)
       postcss: 8.4.32
       postcss-load-config: 4.0.2(postcss@8.4.32)
-      tailwindcss: 3.4.1(patch_hash=emmcsb6gax5qlgoyf2epjf5p5u)
+      tailwindcss: 3.4.1(patch_hash=ol6opotpkikolkxplv45u4o26e)
     transitivePeerDependencies:
       - ts-node
     dev: true
@@ -1120,7 +1120,7 @@ packages:
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.4.1(patch_hash=emmcsb6gax5qlgoyf2epjf5p5u)
+      tailwindcss: 3.4.1(patch_hash=ol6opotpkikolkxplv45u4o26e)
     dev: true
 
   /@types/babel__core@7.20.5:
@@ -5552,7 +5552,7 @@ packages:
       tslib: 2.6.2
     dev: true
 
-  /tailwindcss@3.4.1(patch_hash=emmcsb6gax5qlgoyf2epjf5p5u):
+  /tailwindcss@3.4.1(patch_hash=ol6opotpkikolkxplv45u4o26e):
     resolution: {integrity: sha512-qAYmXRfk3ENzuPBakNK0SRrUDipP8NQnEY6772uDhflcQz5EhRdD7JNZxyrFHVQNCwULPBn6FNPp9brpO7ctcA==}
     engines: {node: '>=14.0.0'}
     hasBin: true

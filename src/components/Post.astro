@@ -12,24 +12,26 @@ const { Content } = await post.render()
 ---
 
 <article
-	class='flex w-11/12 shrink-0 snap-center rounded-md shadow-post md:h-[34rem]'
+	class='shadow-input md:drop-shadow-post flex w-11/12 shrink-0 snap-center rounded-md bg-footer md:h-[34rem]'
 >
-	<div class='flex shrink-0 flex-col gap-5 pb-4 max-md:w-full md:pb-10'>
+	<div
+		class='flex shrink-0 flex-col gap-2 pb-4 max-md:w-full md:gap-5 md:pb-10'
+	>
 		<Image
 			src={post.data.poster}
-			width={500}
+			width={554}
 			height={232}
 			alt=''
 			class='object-cover max-md:h-26 max-md:w-full'
 		/>
 		<div class='flex grow flex-col px-3 md:px-5'>
-			<h4 class='grow text-primary md:text-xl'>
+			<h4 class='grow text-base text-primary md:text-2xl'>
 				{post.data.title}
 			</h4>
-			<p class='text-secondary max-md:mt-3 max-md:text-xs'>
+			<p class='text-xs text-secondary max-md:mt-2 md:text-lg'>
 				Por Belozupko & Cipriano Advocacia
 			</p>
-			<p class='text-black/55 max-md:text-xs md:mt-3'>
+			<p class='mt-1 text-xs md:mt-3 md:text-lg'>
 				{formatDate(post.data.date)}
 			</p>
 		</div>

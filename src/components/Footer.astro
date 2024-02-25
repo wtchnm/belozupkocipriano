@@ -5,38 +5,38 @@ import Ruler from './Ruler.astro'
 ---
 
 <footer
-	class='mt-14 flex scroll-mt-28 flex-col items-center bg-black/10 md:mt-44'
+	class='mt-24 flex scroll-mt-28 flex-col items-center bg-footer pb-8 text-primary md:mt-44 md:pb-26'
 >
 	<Ruler />
 	<div
-		class='-mt-8 flex h-14 w-68 items-center justify-between rounded-2xl bg-white px-4 shadow-title md:-mt-14 md:h-22 md:w-[50rem] md:px-14'
+		class='shadow-input -mt-8 flex h-14 w-68 items-center justify-between gap-6 rounded-lg bg-background px-4 md:-mt-14 md:h-22 md:w-[50rem] md:px-14 md:shadow-title'
 	>
-		<h2 class='font-serif text-base/4 font-medium md:text-2xl md:uppercase'>
-			Entre em contato conosco!
+		<h2 class='text-center font-serif text-sm/4 md:text-2xl'>
+			ENTRE EM CONTATO CONOSCO!
 		</h2>
-		<div class='flex gap-5 md:gap-14'>
+		<div class='flex gap-4 md:gap-14'>
 			<a href='tel:+5542998395419' aria-label='Telefone'>
-				<Icon name='call' width={30} height={30} class='max-md:w-5' />
+				<Icon name='call' width={30} height={30} class='max-md:size-4.5' />
 			</a>
 			<a href='mailto:belozupkociprianoadv@gmail.com' aria-label='Email'>
-				<Icon name='email' width={30} height={30} class='max-md:w-5' />
+				<Icon name='email' width={30} height={30} class='max-md:size-4.5' />
 			</a>
 			<a
 				href='https://www.instagram.com/belozupkociprianoadvocacia/'
 				aria-label='Instagram'
 			>
-				<Icon name='instagram' width={30} height={30} class='max-md:w-5' />
+				<Icon name='instagram' width={30} height={30} class='max-md:size-4.5' />
 			</a>
 		</div>
 	</div>
-	<Contact />
 	<div
-		class='flex w-full flex-col items-center gap-4 bg-primary py-5 text-center font-serif text-lg text-white md:gap-14 md:py-7 md:text-xl'
+		class='mt-8 flex w-full max-w-7xl max-md:flex-col md:mt-16 md:justify-evenly'
 	>
+		<Contact />
 		<div
-			class='grid w-full max-w-4xl gap-4 max-md:grid-rows-2 md:grid-cols-2 md:gap-28'
+			class='flex flex-col items-center gap-6 max-md:mt-7 max-md:font-serif max-md:text-lg md:gap-10'
 		>
-			<p class='flex items-center justify-center gap-2 md:justify-end'>
+			<p class='flex items-center gap-2.5'>
 				<Icon
 					name='call'
 					width={30}
@@ -56,10 +56,9 @@ import Ruler from './Ruler.astro'
 				/>
 				<span>belozupkociprianoadv@gmail.com</span>
 			</p>
+			<address class='max-md:text-center'>
+				R. Abdala Miguel Sarraf, 347<br />Centro, Rebouças - PR, 84550-000
+			</address>
 		</div>
-		<address>
-			R. Abdala Miguel Sarraf, 347<br />Centro, Rebouças - PR, 84550-000
-		</address>
 	</div>
-	<p class='py-1 text-xs'>Todos os direitos reservados | 2023</p>
 </footer>

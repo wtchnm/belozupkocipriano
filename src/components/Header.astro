@@ -1,27 +1,27 @@
 ---
 import Icon from './Icon.astro'
-import LogoImage from '../assets/logo.jpeg'
+import LogoImage from '../assets/logo.png'
 import { Image } from 'astro:assets'
 ---
 
 <header
-	class='sticky top-0 flex h-14 items-center gap-40 bg-primary font-serif text-xl text-white md:h-18 md:justify-center md:text-2xl'
+	class='sticky top-0 z-10 flex h-14 items-center gap-16 bg-background font-serif text-2xl text-primary md:h-18 md:justify-center md:text-2xl'
 >
 	<div class='relative md:hidden'>
 		<Icon
 			name='hamburger'
-			width={24}
-			height={24}
-			class='relative left-4 z-10 text-secondary'
+			width={28}
+			height={14}
+			class='relative left-4 text-primary'
 			aria-label='Menu'
 		/>
 		<input
 			type='checkbox'
-			class='peer absolute top-0 z-10 size-8 opacity-0'
+			class='peer absolute top-0 size-8 opacity-0'
 			aria-label='Menu'
 		/>
 		<div
-			class='fixed left-0 top-0 -z-10 flex h-26 w-full -translate-y-full transform-gpu justify-between bg-primary px-7 pt-16 opacity-0 transition-all duration-300 peer-checked:translate-y-0 peer-checked:transform-gpu peer-checked:opacity-100'
+			class='fixed left-0 top-0 -z-10 flex h-26 w-full -translate-y-full transform-gpu justify-center gap-6 bg-background px-7 pt-16 text-xl opacity-0 transition-all duration-300 peer-checked:translate-y-0 peer-checked:transform-gpu peer-checked:opacity-100'
 		>
 			<a href='#services'>SERVIÇOS</a>
 			<a href='#about'>SOBRE</a>
@@ -35,8 +35,8 @@ import { Image } from 'astro:assets'
 		class='max-md:absolute max-md:left-1/2 max-md:-translate-x-1/2'
 	>
 		<Image
-			height={60}
-			class='size-13 max-md:size-10'
+			height={40}
+			class='h-10 max-md:h-8 max-md:w-auto'
 			src={LogoImage}
 			alt='Belozupko & Cipriano'
 			loading='eager'

@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
-import HeroImage from '../assets/hero.jpeg'
+import HeroImage from '../assets/hero.jpg'
 import FullLogoImage from '../assets/logo-full.png'
 import Team1Image from '../assets/team-1.png'
 import Team2Image from '../assets/team-2.png'
@@ -10,7 +10,6 @@ import Picture from '../components/Picture.astro'
 import Base from '../layouts/Base.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import Ruler from '../components/Ruler.astro'
 import Service from '../components/Service.astro'
 import Carousel from '../components/Carousel.astro'
 
@@ -20,49 +19,43 @@ posts = [...posts, ...posts]
 
 <Base>
 	<Header />
-	<main class='flex flex-col items-center'>
+	<main class='mt-2 flex flex-col items-center md:mt-14 md:max-xl:px-4'>
 		<div
-			class='flex w-full flex-col items-center bg-gradient-to-b from-primary'
+			class='flex w-full items-center gap-6 self-end max-md:flex-col md:max-w-[calc(100%-calc(calc(100%-1280px)/2))] md:gap-11'
 		>
 			<Picture
-				class='w-full object-cover grayscale-[50%] max-md:h-full'
-				pictureAttributes={{
-					class: 'relative -z-10 w-full max-md:h-40'
-				}}
-				src={HeroImage}
-				height={408}
-				widths={[640, 1280]}
+				src={FullLogoImage}
+				height={102}
+				widths={[396, 1080]}
 				alt='Belozupko & Cipriano'
 				loading='eager'
 				decoding='sync'
 				fetchpriority='high'
+				class='h-auto w-full max-md:w-[264px] md:max-w-[726px]'
 			/>
-			<Ruler />
-			<div
-				class='-mt-8 grid h-14 w-80 place-items-center rounded-2xl bg-white shadow-title md:-mt-14 md:h-30 md:w-[45rem]'
-			>
-				<Picture
-					src={FullLogoImage}
-					height={84}
-					widths={[400, 1280]}
-					alt='Belozupko & Cipriano'
-					class='max-md:h-9 max-md:w-auto'
-					loading='eager'
-					decoding='sync'
-				/>
-			</div>
+			<Picture
+				src={HeroImage}
+				height={408}
+				widths={[565, 1400]}
+				alt='Belozupko & Cipriano'
+				loading='eager'
+				decoding='sync'
+				fetchpriority='high'
+				class='w-full object-cover max-md:h-32 md:max-w-[920px]'
+				pictureAttributes={{
+					class: 'max-md:w-full'
+				}}
+			/>
 		</div>
 
 		<section
-			class='mt-6 flex w-full max-w-7xl items-center justify-between text-justify max-md:flex-col max-md:px-3 md:mt-20'
+			class='mt-6 flex w-full max-w-7xl items-center justify-between max-md:flex-col max-md:px-3 md:mt-28'
 		>
-			<div class='max-w-md shrink-0'>
-				<h2
-					class='font-serif text-xl text-primary/75 max-md:text-center md:text-3xl'
-				>
-					COM INICIO EM 2021
+			<div class='max-w-[496px] shrink-0'>
+				<h2 class='font-serif text-xl text-primary md:text-3xl'>
+					Com inicio em 2021
 				</h2>
-				<p class='mt-2 md:italic'>
+				<p class='md:mt-2'>
 					Belozupko & Cipriano é um escritório de advocacia voltado ao
 					atendimento jurídico com sede na cidade de Rebouças/Paraná.
 				</p>
@@ -77,15 +70,15 @@ posts = [...posts, ...posts]
 
 		<section
 			id='services'
-			class='mt-8 w-full max-w-layout scroll-mt-32 max-md:grid max-md:justify-center md:mt-28 md:scroll-mt-24'
+			class='mt-8 w-full max-w-layout scroll-mt-32 max-md:grid max-md:justify-center md:mt-16 md:scroll-mt-24'
 		>
 			<h2
-				class='px-12 text-center font-serif text-xl text-secondary max-md:mx-auto max-md:w-80 md:px-8 md:text-3xl'
+				class='font-serif text-xl text-secondary max-md:mx-auto max-md:w-80 max-md:px-12 max-md:text-center md:text-3xl'
 			>
-				OFERECEMOS SERVIÇOS DENTRO DAS ÁREAS
+				OFERECEMOS SERVIÇOS DENTRO DAS ÁREAS:
 			</h2>
 			<div
-				class='mt-7 flex snap-x snap-mandatory snap-always gap-3 max-md:overflow-auto max-md:px-3 max-md:pb-4 md:mt-11 md:justify-center md:gap-10'
+				class='mt-7 flex snap-x snap-mandatory snap-always gap-6 max-md:overflow-auto max-md:px-4 max-md:pb-4 md:mt-16 md:justify-center md:gap-8'
 				tabindex='0'
 			>
 				{Array.from({ length: 4 }).map(() => <Service />)}
@@ -94,17 +87,15 @@ posts = [...posts, ...posts]
 
 		<section
 			id='about'
-			class='mt-9 flex w-full scroll-mt-32 flex-col items-center gap-8 md:mt-32 md:scroll-mt-24 md:gap-12'
+			class='mt-10 flex w-full scroll-mt-32 flex-col items-center gap-8 md:mt-24 md:scroll-mt-24 md:gap-12'
 		>
 			<div
 				class='flex w-full max-w-layout items-center justify-between max-md:flex-col max-md:text-center'
 			>
-				<h2
-					class='max-w-md font-serif text-xl/5 text-primary max-md:w-52 md:text-3xl/8'
-				>
+				<h2 class='font-serif text-xl/5 text-primary max-md:w-52 md:text-3xl/8'>
 					CONHEÇA NOSSA EQUIPE DE ADVOGADOS
 				</h2>
-				<p class='max-w-2xl max-md:mt-3 max-md:w-80 md:text-right'>
+				<p class='max-w-xl max-md:mt-5 max-md:w-80 md:text-right'>
 					Nossa atuação profissional é pautada na confiabilidade e proficiência,
 					é de suma importância que você conheça nossa equipe
 				</p>
@@ -130,14 +121,9 @@ posts = [...posts, ...posts]
 						'Estagiária de Direito do Tribunal de Justiça do Estado do Paraná'
 					]
 				}}
-				expertise={[
-					'Direito Civil',
-					'Direito Previdenciário',
-					'Direito da Família',
-					'Direito Administrativo'
-				]}
 			/>
 			<TeamMember
+				reverse
 				image={Team2Image}
 				name='Thiago Cipriano'
 				description='Advogado OAB/PR 74.562'
@@ -155,15 +141,9 @@ posts = [...posts, ...posts]
 						'Auxiliar administrativo no Sindicato dos Trabalhadores Rurais'
 					]
 				}}
-				expertise={[
-					'Direito Civil',
-					'Direito Previdenciário',
-					'Direito Tributário',
-					'Direito Criminal'
-				]}
 			/>
 		</section>
-		<section class='mt-8 w-full max-w-layout md:mt-18'>
+		<section class='mt-5 w-full max-w-layout md:mt-18'>
 			<h2
 				class='font-serif text-base text-secondary max-md:text-center md:text-xl'
 			>

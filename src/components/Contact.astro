@@ -1,23 +1,15 @@
 ---
 import Textarea from '../components/Textarea.astro'
-import LogoGray from '../assets/logo-gray.png'
-import { Image } from 'astro:assets'
 import Button from '../components/Button.astro'
 import Input from '../components/Input.astro'
 ---
 
 <form
 	id='contact'
-	class='relative grid place-items-center gap-5 py-5 md:gap-12 md:pb-12 md:pt-20'
+	class='flex flex-col justify-center gap-7 max-md:items-center md:items-end'
 >
-	<Image
-		src={LogoGray}
-		height={270}
-		class='absolute top-8 -z-10 max-md:h-34 max-md:w-auto'
-		alt='Belozupko & Cipriano'
-	/>
-	<div class='flex gap-6 max-md:flex-col md:gap-48'>
-		<div class='flex flex-col justify-between max-md:gap-4'>
+	<div class='flex gap-7 max-md:flex-col md:gap-14'>
+		<div class='grid gap-5'>
 			<Input name='name' placeholder='Nome' autocomplete='name' required />
 			<Input type='email' name='email' placeholder='E-mail' required />
 			<Input
@@ -29,7 +21,7 @@ import Input from '../components/Input.astro'
 				required
 			/>
 		</div>
-		<Textarea name='message' placeholder='Deixe sua mensagem aqui' required />
+		<Textarea name='message' placeholder='Deixe aqui sua mensagem' required />
 	</div>
 	<Button>ENVIAR</Button>
 </form>

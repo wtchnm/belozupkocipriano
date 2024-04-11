@@ -1,8 +1,8 @@
 diff --git a/lib/css/preflight.css b/lib/css/preflight.css
-index 3e4fa066386fad2b9be6207586182d8e69d4de71..b6704dcefa7c48f089a25c11b904de86374c1aee 100644
+index 7a0d82d46e040f2bf7b133e47380b1dc599e855c..e0900c1b55ca801f9c44032c6608667b45419289 100644
 --- a/lib/css/preflight.css
 +++ b/lib/css/preflight.css
-@@ -369,16 +369,6 @@ object {
+@@ -370,16 +370,6 @@ object {
    vertical-align: middle; /* 2 */
  }
  

@@ -13,26 +13,26 @@
 		"format": "prettier --write --cache ."
 	},
 	"devDependencies": {
-		"@astrojs/check": "0.5.5",
+		"@astrojs/check": "0.5.10",
 		"@astrojs/tailwind": "5.1.0",
-		"@tailwindcss/typography": "0.5.10",
+		"@tailwindcss/typography": "0.5.12",
 		"@types/hast": "3.0.4",
 		"@typescript-eslint/eslint-plugin": "7.0.2",
 		"@typescript-eslint/parser": "7.0.2",
-		"astro": "4.4.3",
+		"astro": "4.6.0",
 		"eslint": "8.56.0",
 		"eslint-config-prettier": "9.1.0",
-		"eslint-plugin-astro": "0.31.4",
+		"eslint-plugin-astro": "0.34.0",
 		"eslint-plugin-jsx-a11y": "6.8.0",
 		"hast-util-is-css-link": "3.0.0",
 		"npm-run-all": "4.1.5",
 		"prettier": "3.2.5",
 		"prettier-plugin-astro": "0.13.0",
-		"prettier-plugin-tailwindcss": "0.5.11",
+		"prettier-plugin-tailwindcss": "0.5.13",
 		"rehype": "13.0.1",
-		"sharp": "0.33.2",
-		"tailwindcss": "3.4.1",
-		"typescript": "5.3.3",
+		"sharp": "0.33.3",
+		"tailwindcss": "3.4.3",
+		"typescript": "5.4.5",
 		"unist-util-visit": "5.0.0"
 	},
 	"engines": {
@@ -44,7 +44,7 @@
 			"semver@<5.7.2": ">=5.7.2"
 		},
 		"patchedDependencies": {
-			"tailwindcss@3.4.1": "patches/tailwindcss@3.4.1.patch"
+			"tailwindcss@3.4.3": "patches/tailwindcss@3.4.3.patch"
 		}
 	}
 }

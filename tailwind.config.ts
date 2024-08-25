@@ -61,8 +61,8 @@ export default {
 	},
 	plugins: [
 		typography,
-		plugin(function ({ addBase }) {
-			addBase({
+		plugin(function (params) {
+			params.addBase({
 				'input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button':
 					{
 						'-webkit-appearance': 'none'

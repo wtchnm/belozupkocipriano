@@ -1,4 +1,5 @@
 {
+	"name": "belozupkocipriano",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -7,43 +8,34 @@
 		"preview": "astro preview",
 		"lint:astro": "astro check",
 		"lint:tsc": "tsc",
-		"lint:eslint": "eslint --fix --cache --ext .astro,.ts .",
 		"lint:prettier": "prettier --check --cache .",
 		"lint": "pnpm run \"/lint:./\"",
 		"format": "prettier --write --cache ."
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.9.4",
-		"@astrojs/tailwind": "5.1.0",
-		"@tailwindcss/typography": "0.5.14",
+		"@tailwindcss/vite": "4.1.7",
 		"@types/hast": "3.0.4",
-		"@typescript-eslint/eslint-plugin": "8.2.0",
-		"@typescript-eslint/parser": "8.2.0",
-		"astro": "4.16.18",
-		"eslint": "8.57.0",
-		"eslint-config-prettier": "9.1.0",
-		"eslint-plugin-astro": "1.2.3",
-		"eslint-plugin-jsx-a11y": "6.9.0",
-		"hast-util-is-css-link": "3.0.0",
+		"astro": "5.8.0",
+		"hast-util-is-css-link": "3.0.1",
 		"prettier": "3.3.3",
 		"prettier-plugin-astro": "0.14.1",
-		"prettier-plugin-tailwindcss": "0.6.6",
-		"rehype": "13.0.1",
+		"prettier-plugin-tailwindcss": "0.6.11",
+		"rehype": "13.0.2",
 		"sharp": "0.33.5",
-		"tailwindcss": "3.4.10",
+		"tailwindcss": "4.1.7",
 		"typescript": "5.5.4",
 		"unist-util-visit": "5.0.0"
 	},
 	"engines": {
-		"node": ">=20.10.0"
+		"node": ">=22.0.0"
 	},
-	"packageManager": "pnpm@8.10.0",
+	"packageManager": "pnpm@10.11.0",
 	"pnpm": {
-		"patchedDependencies": {
-			"tailwindcss@3.4.10": "patches/tailwindcss@3.4.10.patch"
-		},
-		"overrides": {
-			"esbuild@<=0.24.2": ">=0.25.0"
-		}
+		"onlyBuiltDependencies": [
+			"@tailwindcss/oxide",
+			"esbuild",
+			"sharp"
+		]
 	}
 }

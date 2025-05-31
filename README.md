@@ -1,6 +1,6 @@
 # belozupkocipriano
 
-Landing page for a law firm.
+Landing page for a law firm. Generated from [wtchnm/Lastro](https://github.com/wtchnm/Lastro).
 
 Uses **Astro V5** and **Tailwind CSS V4**. Comes pre configured with:
 

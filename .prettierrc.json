@@ -1,16 +1,10 @@
 {
 	"arrowParens": "avoid",
 	"jsxSingleQuote": true,
-	"overrides": [
-		{
-			"files": "*.astro",
-			"options": {
-				"parser": "astro"
-			}
-		}
-	],
+	"overrides": [{ "files": "*.astro", "options": { "parser": "astro" } }],
 	"plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
 	"semi": false,
+	"objectWrap": "collapse",
 	"singleQuote": true,
 	"trailingComma": "none",
 	"useTabs": true

@@ -33,10 +33,7 @@ import Icon from '../components/Icon.astro'
 	const right = document.getElementById('right')
 
 	function scrollBy(left: number) {
-		scroll?.scrollBy({
-			left,
-			behavior: 'smooth'
-		})
+		scroll?.scrollBy({ left, behavior: 'smooth' })
 	}
 
 	if (scroll && left && right) {

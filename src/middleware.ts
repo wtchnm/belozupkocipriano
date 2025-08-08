@@ -13,7 +13,11 @@ const rehypeInstance = rehype().use(() => (tree: Root) => {
 			links.push({
 				type: 'element',
 				tagName: 'link',
-				properties: { rel: 'preload', as: 'style', href: node.properties.href },
+				properties: {
+					rel: 'preload',
+					as: 'style',
+					href: node.properties['href']
+				},
 				children: []
 			})
 	})

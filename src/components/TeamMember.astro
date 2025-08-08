@@ -37,15 +37,15 @@ const { reverse, image, name, description, graduation, timeline } = Astro.props
 				}
 			]}
 		>
-			<h2 class='text-lg/5 font-medium text-primary md:text-2xl'>
+			<h2 class='text-primary text-lg/5 font-medium md:text-2xl'>
 				{name}
 			</h2>
-			<p class='text-base/4 text-primary/75 md:text-xl'>{description}</p>
-			<p class='text-base/4 text-primary/75 md:text-xl'>
+			<p class='text-primary/75 text-base/4 md:text-xl'>{description}</p>
+			<p class='text-primary/75 text-base/4 md:text-xl'>
 				{graduation}
 			</p>
 		</div>
-		<ul class='mt-7 list-inside max-md:col-span-2 md:ml-6 md:mt-9'>
+		<ul class='mt-7 list-inside max-md:col-span-2 md:mt-9 md:ml-6'>
 			{
 				Object.entries(timeline).map(([title, items]) => (
 					<li>

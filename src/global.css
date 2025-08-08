@@ -2,12 +2,12 @@
 
 @theme {
 	--color-*: initial;
-	--color-primary: #45031E;
-	--color-secondary: #8D7447;
-	--color-background: #FAF8F5;
-	--color-footer: #F5F1EC;
+	--color-primary: #45031e;
+	--color-secondary: #8d7447;
+	--color-background: #faf8f5;
+	--color-footer: #f5f1ec;
 
-	--color-white: #FFFFFF;
+	--color-white: #ffffff;
 	--color-black: #000000;
 	--color-transparent: transparent;
 
@@ -30,7 +30,8 @@
 }
 
 @layer base {
-	img, video {
+	img,
+	video {
 		height: revert-layer;
 	}
 
@@ -46,9 +47,8 @@
 		padding-left: --spacing(4);
 	}
 
-	input[type="number"]::-webkit-outer-spin-button,
-  input[type="number"]::-webkit-inner-spin-button
-  {
-    -webkit-appearance: none;
-  }
+	input[type='number']::-webkit-outer-spin-button,
+	input[type='number']::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+	}
 }
